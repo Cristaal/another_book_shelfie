@@ -3,6 +3,9 @@
   <p>Click on an author to see the list of titles</p>
   <ul>
     <% @authors.each do |author|%>
-    <li><%= author.name() %></li>
+    <li><a href="/title_page"><%= author.name() %></a></li>
     <% end %>
   </ul>
+
+
+<a href='/'>Click here to return to the main page</a>
