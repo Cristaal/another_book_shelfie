@@ -17,6 +17,11 @@ get '/author_page' do
   erb :author_page
 end
 
+get '/title_page' do
+  erb :title_page
+end
+
+
 post '/add_info' do
   author = params.fetch('author')
   title = params.fetch('title')
