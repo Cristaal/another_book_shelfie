@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: book_shelf_development
+  template: template0
+
+test:
+  adapter: postgresql
+  database: book_shelf_test
+  template: template0
