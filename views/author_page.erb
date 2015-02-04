@@ -1,0 +1,8 @@
+<h1>Here is a list of the authors in your library</h1>
+<br>
+  <p>Click on an author to see the list of titles</p>
+  <ul>
+    <% @authors.each do |author|%>
+    <li><%= author.name() %></li>
+    <% end %>
+  </ul>
