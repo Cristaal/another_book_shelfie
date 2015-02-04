@@ -12,6 +12,11 @@ get '/add_info' do
  erb :add_info
 end
 
+get '/author_page' do
+  @authors = Author.all
+  erb :author_page
+end
+
 post '/add_info' do
   author = params.fetch('author')
   title = params.fetch('title')
@@ -22,5 +27,11 @@ post '/add_info' do
   @authors = Author.all()
   @titles = Title.all()
   @genres = Genre.all()
-  erb :add_info
+  erb :show
+end
+post 'author_page' do
+  name = params.fetch "author"
+  Author.create({:name => name})
+  @authors = Author.all()
+  erb(:author_page)
 end
