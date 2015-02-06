@@ -17,8 +17,9 @@ get '/author_page' do
   erb :author_page
 end
 
-get '/title_page' do
-  erb :title_page
+get '/title_page/:id' do
+  @author = Author.find(params.fetch('id'))
+ erb :title_page
 end
 
 
@@ -34,9 +35,20 @@ post '/add_info' do
   @genres = Genre.all()
   erb :show
 end
-post 'author_page' do
+
+post '/author_page' do
   name = params.fetch "author"
   Author.create({:name => name})
   @authors = Author.all()
-  erb(:author_page)
+  erb :author_page
+end
+
+patch "/authors/:id" do
+  @author = Author.find(params.fetch("id").to_i())
+  params["title_id"].each do |id|
+    title = Title.find(id.to_i())
+    @author.titles << title
+  end
+  @titles = Title.all()
+  erb(:title_page)
 end
