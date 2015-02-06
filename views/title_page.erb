@@ -1,3 +1,9 @@
-you made it
+<h1><%= @author.name %></h1>
 <br>
+<ul>
+  <% @author.titles().each() do |title| %>
+  <li><%= title.title() %></li>
+  <% end %>
+</ul>
+
  <a href='/'>Click here to return to the main page</a>
